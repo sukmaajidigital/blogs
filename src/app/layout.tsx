@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "My Awesome Blog",
     images: [
       {
-        url: `${SITE_URL}/og-image.png`, // Buat gambar ini dan letakkan di folder /public
+        url: `${SITE_URL}/og-image.webp`, // Buat gambar ini dan letakkan di folder /public
         width: 1200,
         height: 630,
       },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "My Awesome Blog",
     description: "A personal blog about web development, technology, and life.",
     // creator: '@yourTwitterHandle', // Tambahkan handle twitter Anda
-    images: [`${SITE_URL}/og-image.png`],
+    images: [`${SITE_URL}/og-image.webp`],
   },
 };
 

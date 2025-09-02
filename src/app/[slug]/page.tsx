@@ -64,7 +64,7 @@ const JsonLd = ({ postData }: { postData: Awaited<ReturnType<typeof getPostData>
       },
     ],
     description: postData.excerpt,
-    image: postData.coverImage ? `${siteUrl}${postData.coverImage}` : `${siteUrl}/og-image.png`,
+    image: postData.coverImage ? `${siteUrl}${postData.coverImage}` : `${siteUrl}/og-image.webp`,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${siteUrl}/${postData.slug}`,
