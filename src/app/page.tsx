@@ -9,8 +9,10 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-12">
       <section className="text-center mb-12">
-        <h1 className="text-5xl font-extrabold tracking-tight mb-3">Welcome to My Blog</h1>
-        <p className="text-lg text-gray-600">Thoughts, stories, and ideas on web development.</p>
+        <h1 className="text-3xl font-extrabold tracking-tight mb-3">my blog</h1>
+        <p className="text-lg text-gray-600">
+          Berbagi Inspirasi, Cerita, dan Inovasi Seputar Teknologi & Pengembangan Diri
+        </p>
       </section>
 
       <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

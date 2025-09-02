@@ -38,8 +38,6 @@ Selain itu, kontribusi dari mahasiswa jurusan lain seperti akuntansi, manajemen,
 
 Akhirnya, dengan bangga kami perkenalkan, **Lapakbae**, sebuah website katalog digital yang menjadi etalase bagi produk-produk UMKM Desa Bae. Melalui website ini, Anda dapat menjelajahi berbagai produk khas, mulai dari kerajinan tangan, makanan ringan, hingga produk pertanian lokal.
 
-![katalog-umkm-desa-bae](/images/katalog-umkm-desa-bae.png)
-
 Website Lapakbae dapat diakses dengan mudah melalui tautan ini: **[https://desa-bae.kuduskab.go.id/lapakbae/public](https://desa-bae.kuduskab.go.id/lapakbae/public)**.
 
 ## Dukungan untuk Kemajuan Ekonomi Desa

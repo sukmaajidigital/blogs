@@ -9,7 +9,7 @@ const Header = () => {
           MyBlog
         </Link>
         <div>
-          <Link href="/" className="px-3 py-2 rounded hover:bg-gray-700">
+          <Link href="https://sukmaaji.my.id" className="px-3 py-2 rounded hover:bg-gray-700">
             Home
           </Link>
           {/* Tambahkan link lain di sini jika perlu */}
