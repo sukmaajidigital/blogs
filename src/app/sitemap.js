@@ -1,11 +1,12 @@
 // src/app/sitemap.js
 import { getSortedPostsData } from '@/lib/posts';
+export const dynamic = 'force-static';
 
 export default function sitemap() {
-    const siteUrl = 'https://your-github-username.github.io/my-blog'; // Ganti dengan URL Anda
+    const siteUrl = 'https://sukmaaji.my.id/blogs'; // Ganti dengan URL Anda
 
     const posts = getSortedPostsData().map(({ slug }) => ({
-        url: `${siteUrl}/blog/${slug}`,
+        url: `${siteUrl}/${slug}`,
         lastModified: new Date().toISOString(),
     }));
 

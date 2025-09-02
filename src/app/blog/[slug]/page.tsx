@@ -3,6 +3,7 @@ import { getAllPostSlugs, getPostData } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 type Props = {
   params: { slug: string };
@@ -90,10 +91,9 @@ export default async function Post({ params }: Props) {
   let postData;
   try {
     postData = await getPostData(params.slug);
-  } catch (error) {
+  } catch {
     notFound();
   }
-
   return (
     <>
       {/* Menambahkan JSON-LD ke dalam <head> */}
@@ -117,9 +117,11 @@ export default async function Post({ params }: Props) {
           </header>
 
           {postData.coverImage && (
-            <img
+            <Image
               src={postData.coverImage}
               alt={`Cover for ${postData.title}`}
+              width={800}
+              height={400}
               className="w-full rounded-lg shadow-lg mb-8"
             />
           )}

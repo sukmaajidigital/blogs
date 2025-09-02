@@ -1,6 +1,7 @@
 // src/app/page.tsx
 import { getSortedPostsData } from "@/lib/posts";
 import Link from "next/link";
+import Image from "next/image"; // 1. Import Image
 
 export default function Home() {
   const allPostsData = getSortedPostsData();
@@ -20,9 +21,11 @@ export default function Home() {
           >
             {coverImage && (
               <Link href={`/blog/${slug}`}>
-                <img
+                <Image
                   src={coverImage}
                   alt={`Cover image for ${title}`}
+                  width={400}
+                  height={200}
                   className="w-full h-48 object-cover"
                 />
               </Link>
