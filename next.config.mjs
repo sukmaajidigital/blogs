@@ -6,8 +6,8 @@ const nextConfig = {
     output: 'export',
 
     // (PENTING) Ganti 'my-blog' dengan nama repository GitHub Anda
-    basePath: '/blogs/',
-    assetPrefix: '/blogs/',
+    basePath: '/blogs',
+    assetPrefix: '/blogs',
 };
 
 export default nextConfig;
