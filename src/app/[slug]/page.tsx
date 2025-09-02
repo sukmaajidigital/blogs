@@ -25,13 +25,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         type: "article",
         publishedTime: post.date,
         url: `${siteUrl}/${post.slug}`,
-        images: post.coverImage ? [{ url: `${siteUrl}${post.coverImage}` }] : [],
+        images: post.coverImage ? [{ url: `${siteUrl}/blogs/${post.coverImage}` }] : [],
       },
       twitter: {
         card: "summary_large_image",
         title: post.title,
         description: post.excerpt,
-        images: post.coverImage ? [`${siteUrl}${post.coverImage}`] : [],
+        images: post.coverImage ? [`${siteUrl}/blogs/${post.coverImage}`] : [],
       },
     };
   } catch {
@@ -64,7 +64,9 @@ const JsonLd = ({ postData }: { postData: Awaited<ReturnType<typeof getPostData>
       },
     ],
     description: postData.excerpt,
-    image: postData.coverImage ? `${siteUrl}${postData.coverImage}` : `${siteUrl}/og-image.png`,
+    image: postData.coverImage
+      ? `${siteUrl}/blogs/${postData.coverImage}`
+      : `${siteUrl}/og-image.png`,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${siteUrl}/${postData.slug}`,
