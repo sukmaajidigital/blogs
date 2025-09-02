@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: post.excerpt,
         type: "article",
         publishedTime: post.date,
-        url: `${siteUrl}/blog/${post.slug}`,
+        url: `${siteUrl}/${post.slug}`,
         images: post.coverImage ? [{ url: `${siteUrl}${post.coverImage}` }] : [],
       },
       twitter: {
@@ -67,7 +67,7 @@ const JsonLd = ({ postData }: { postData: Awaited<ReturnType<typeof getPostData>
     image: postData.coverImage ? `${siteUrl}${postData.coverImage}` : `${siteUrl}/og-image.png`,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${siteUrl}/blog/${postData.slug}`,
+      "@id": `${siteUrl}/${postData.slug}`,
     },
     publisher: {
       "@type": "Organization",
