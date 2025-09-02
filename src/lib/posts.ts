@@ -12,7 +12,7 @@ export interface PostMetadata {
   date: string;
   excerpt: string;
   author: string;
-  coverImage?: string; // Gambar sampul bersifat opsional
+  coverImage?: string;
 }
 
 // Mendefinisikan tipe untuk data post lengkap yang akan ditampilkan

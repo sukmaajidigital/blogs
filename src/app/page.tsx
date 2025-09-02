@@ -20,7 +20,7 @@ export default function Home() {
             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
             {coverImage && (
-              <Link href={`/blog/${slug}`}>
+              <Link href={`/${slug}`}>
                 <Image
                   src={coverImage}
                   alt={`Cover image for ${title}`}
@@ -33,12 +33,12 @@ export default function Home() {
             <div className="p-6">
               <p className="text-sm text-gray-500 mb-2">{date}</p>
               <h2 className="text-xl font-bold mb-2">
-                <Link href={`/blog/${slug}`} className="text-gray-900 hover:text-blue-600">
+                <Link href={`/${slug}`} className="text-gray-900 hover:text-blue-600">
                   {title}
                 </Link>
               </h2>
               <p className="text-gray-700 mb-4">{excerpt}</p>
-              <Link href={`/blog/${slug}`} className="font-semibold text-blue-600 hover:underline">
+              <Link href={`/${slug}`} className="font-semibold text-blue-600 hover:underline">
                 Read more →
               </Link>
             </div>
