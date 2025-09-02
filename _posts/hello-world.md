@@ -1,9 +1,9 @@
 ---
 title: "Hello World: My First Post"
 date: "2025-09-02"
-author: "Your Name"
+author: "Muhammad Aji Sukma"
 excerpt: "This is the beginning of my new blog journey. Here, I will share my thoughts on web development using Next.js and TypeScript."
-coverImage: "/images/logo-spi-h.png"
+coverImage: "/blogs/images/logo-spi-h.png"
 ---
 
 Welcome to my new blog! This is my very first post, generated from a simple Markdown file.
