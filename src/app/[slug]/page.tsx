@@ -88,6 +88,7 @@ const JsonLd = ({ postData }: { postData: Awaited<ReturnType<typeof getPostData>
 };
 
 export default async function Post({ params }: Props) {
+  const siteUrl = `https://${process.env.GITHUB_USER}.github.io/${process.env.REPO_NAME}`;
   let postData;
   try {
     postData = await getPostData(params.slug);
@@ -118,7 +119,7 @@ export default async function Post({ params }: Props) {
 
           {postData.coverImage && (
             <Image
-              src={postData.coverImage}
+              src={`${siteUrl}${postData.coverImage}`}
               alt={`Cover for ${postData.title}`}
               width={800}
               height={400}
