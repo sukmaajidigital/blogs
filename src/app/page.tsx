@@ -5,7 +5,7 @@ import Image from "next/image"; // 1. Import Image
 
 export default function Home() {
   const allPostsData = getSortedPostsData();
-
+  const siteUrl = `https://${process.env.GITHUB_USER}.github.io/${process.env.REPO_NAME}`;
   return (
     <div className="container mx-auto px-4 py-12">
       <section className="text-center mb-12">
@@ -22,7 +22,7 @@ export default function Home() {
             {coverImage && (
               <Link href={`/${slug}`}>
                 <Image
-                  src={coverImage}
+                  src={`${siteUrl}${coverImage}`}
                   alt={`Cover image for ${title}`}
                   width={400}
                   height={200}
