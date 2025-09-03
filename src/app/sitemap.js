@@ -4,16 +4,16 @@ export const dynamic = 'force-static';
 
 export default function sitemap() {
     const siteUrl = 'https://sukmaaji.my.id/blogs';
-
+    const changefreq = 'weekly';
     const posts = getSortedPostsData().map(({ slug }) => ({
         url: `${siteUrl}/${slug}`,
         lastModified: new Date().toISOString(),
-        changefreq: 'weekly',
+        changefreq: changefreq,
         priority: 0.7,
     }));
 
     const routes = [
-        { url: siteUrl, lastModified: new Date().toISOString(), changefreq: 'weekly', priority: 1.0 },
+        { url: siteUrl, lastModified: new Date().toISOString(), changefreq: 'daily', priority: 1.0 },
     ];
 
     return [...routes, ...posts];

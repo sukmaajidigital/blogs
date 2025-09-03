@@ -13,7 +13,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const post = await getPostData(params.slug);
-    const siteUrl = `https://${process.env.GITHUB_USER}.github.io/${process.env.REPO_NAME}`;
+    const siteUrl = `https://sukmaaji.my.id/${process.env.REPO_NAME}`;
 
     return {
       title: post.title,
@@ -49,7 +49,7 @@ export async function generateStaticParams() {
 
 // Komponen Structured Data untuk SEO
 const JsonLd = ({ postData }: { postData: Awaited<ReturnType<typeof getPostData>> }) => {
-  const siteUrl = `https://${process.env.GITHUB_USER}.github.io/${process.env.REPO_NAME}`;
+  const siteUrl = `https://sukmaaji.my.id/${process.env.REPO_NAME}`;
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -88,7 +88,7 @@ const JsonLd = ({ postData }: { postData: Awaited<ReturnType<typeof getPostData>
 };
 
 export default async function Post({ params }: Props) {
-  const siteUrl = `https://${process.env.GITHUB_USER}.github.io/${process.env.REPO_NAME}`;
+  const siteUrl = `https://sukmaaji.my.id/${process.env.REPO_NAME}`;
   let postData;
   try {
     postData = await getPostData(params.slug);
@@ -103,8 +103,11 @@ export default async function Post({ params }: Props) {
       <article className="container mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto">
           {/* Link untuk kembali */}
-          <Link href="/" className="text-blue-600 hover:underline mb-8 inline-block">
-            ← Back to all posts
+          <Link
+            href="/"
+            className="text-black hover:underline mb-8 inline-block bg-white p-2 rounded-2xl shadow"
+          >
+            Back to all posts
           </Link>
 
           {/* Header Post */}
@@ -129,7 +132,9 @@ export default async function Post({ params }: Props) {
 
           {/* Konten Post */}
           <div
-            className="prose prose-lg max-w-none prose-indigo"
+            className="prose prose-lg max-w-none prose-indigo dark:prose-invert
+             prose-pre:bg-gray-900 prose-pre:text-gray-100
+             prose-code:before:content-none prose-code:after:content-none"
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
           />
         </div>

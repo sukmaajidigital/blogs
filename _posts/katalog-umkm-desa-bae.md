@@ -18,8 +18,6 @@ tags:
   - Website Katalog UMKM
 ---
 
-![Alt text](/images/katalog-umkm-desa-bae.png)
-
 Di era digital yang serba cepat ini, kehadiran online bukan lagi pilihan, melainkan keharusan, terutama bagi para pelaku Usaha Mikro, Kecil, dan Menengah (UMKM). Kesempatan emas inilah yang menjadi salah satu fokus utama kami, mahasiswa Kuliah Kerja Nyata (KKN) **Universitas Muria Kudus (UMK)**, saat mengabdi di **Desa Bae**, Kecamatan Bae, Kabupaten Kudus.
 
 ## Inisiatif Program Kerja "UMKM Digital"

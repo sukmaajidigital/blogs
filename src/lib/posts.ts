@@ -1,12 +1,16 @@
 // src/lib/posts.ts
-
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
-import html from "remark-html";
+import remarkGfm from "remark-gfm";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+import rehypeHighlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeRaw from "rehype-raw";
 
-// Mendefinisikan tipe untuk metadata post (frontmatter)
 export interface PostMetadata {
   title: string;
   date: string;
@@ -15,13 +19,11 @@ export interface PostMetadata {
   coverImage?: string;
 }
 
-// Mendefinisikan tipe untuk data post lengkap yang akan ditampilkan
 export interface PostData extends PostMetadata {
   slug: string;
   contentHtml: string;
 }
 
-// Mendefinisikan tipe untuk data post di halaman list
 export interface PostListItem extends PostMetadata {
   slug: string;
 }
@@ -38,7 +40,6 @@ export function getSortedPostsData(): PostListItem[] {
       const fileContents = fs.readFileSync(fullPath, "utf8");
       const matterResult = matter(fileContents);
 
-      // Validasi metadata menggunakan tipe
       const metadata: PostMetadata = {
         title: matterResult.data.title,
         date: matterResult.data.date,
@@ -47,10 +48,7 @@ export function getSortedPostsData(): PostListItem[] {
         coverImage: matterResult.data.coverImage,
       };
 
-      return {
-        slug,
-        ...metadata,
-      };
+      return { slug, ...metadata };
     });
 
   return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -59,31 +57,34 @@ export function getSortedPostsData(): PostListItem[] {
 export async function getPostData(slug: string): Promise<PostData> {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  const matterResult = matter(fileContents);
+  const { data, content } = matter(fileContents);
 
-  const processedContent = await remark().use(html).process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const processed = await remark()
+    .use(remarkGfm) // dukung table, checklist, dsb
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, { behavior: "wrap" })
+    .use(rehypeHighlight)
+    .use(rehypeStringify /*, { allowDangerousHtml: true }*/)
+    .process(content);
 
-  const postData: PostData = {
+  const contentHtml = processed.toString();
+
+  return {
     slug,
     contentHtml,
-    title: matterResult.data.title,
-    date: matterResult.data.date,
-    excerpt: matterResult.data.excerpt,
-    author: matterResult.data.author,
-    coverImage: matterResult.data.coverImage,
+    title: data.title,
+    date: data.date,
+    excerpt: data.excerpt,
+    author: data.author,
+    coverImage: data.coverImage,
   };
-
-  return postData;
 }
 
 export function getAllPostSlugs() {
   const fileNames = fs.readdirSync(postsDirectory);
   return fileNames
     .filter((fileName) => fileName.endsWith(".md") || fileName.endsWith(".mdx"))
-    .map((fileName) => {
-      return {
-        slug: fileName.replace(/\.(md|mdx)$/, ""),
-      };
-    });
+    .map((fileName) => ({ slug: fileName.replace(/\.(md|mdx)$/, "") }));
 }

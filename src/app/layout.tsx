@@ -10,27 +10,26 @@ const inter = Inter({ subsets: ["latin"] });
 
 // Ganti 'my-blog' dengan nama repo Anda
 const REPO_NAME = "blogs";
-const GITHUB_USERNAME = "sukmaajidigital";
-const SITE_URL = `https://${GITHUB_USERNAME}.github.io/${REPO_NAME}`;
+const SITE_URL = `https://sukmaaji.my.id/${REPO_NAME}`;
 
 export const metadata: Metadata = {
   // Metadata Base
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "My Awesome Blog",
-    template: `%s | My Awesome Blog`,
+    default: "Personal Blog - Muhammad Aji Sukma",
+    template: `%s | Personal Blog - Muhammad Aji Sukma`,
   },
-  description: "A personal blog about web development, technology, and life.",
+  description: "Blog pribadi tentang pengembangan web, teknologi, dan kehidupan.",
   keywords: ["Next.js", "React", "TypeScript", "Web Development", "Blog"],
-  authors: [{ name: "Your Name", url: SITE_URL }],
-  creator: "Your Name",
+  authors: [{ name: "Muhammad Aji Sukma", url: SITE_URL }],
+  creator: "Muhammad Aji Sukma",
 
   // Open Graph (untuk social media sharing)
   openGraph: {
-    title: "My Awesome Blog",
-    description: "A personal blog about web development, technology, and life.",
+    title: "Personal Blog - Muhammad Aji Sukma",
+    description: "Blog pribadi tentang pengembangan web, teknologi, dan kehidupan.",
     url: SITE_URL,
-    siteName: "My Awesome Blog",
+    siteName: "Personal Blog - Muhammad Aji Sukma",
     images: [
       {
         url: `${SITE_URL}/og-image.webp`, // Buat gambar ini dan letakkan di folder /public
@@ -45,8 +44,8 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "My Awesome Blog",
-    description: "A personal blog about web development, technology, and life.",
+    title: "Personal Blog - Muhammad Aji Sukma",
+    description: "Blog pribadi tentang pengembangan web, teknologi, dan kehidupan.",
     // creator: '@yourTwitterHandle', // Tambahkan handle twitter Anda
     images: [`${SITE_URL}/og-image.webp`],
   },
@@ -55,10 +54,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id">
-      <body className={`${inter.className} bg-gray-50 text-gray-800`}>
+      <body className={`${inter.className} bg-blue-950 text-white`}>
         <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow pt-20">{children}</main>
           <Footer />
         </div>
       </body>
