@@ -1,5 +1,5 @@
 ---
-title: "sample"
+title: "sample10"
 date: "2000-01-01"
 author: "Muhammad Aji Sukma"
 excerpt: "lorem epsum "
