@@ -3,7 +3,7 @@ import { getSortedPostsData } from '@/lib/posts';
 export const dynamic = 'force-static';
 
 export default function sitemap() {
-    const siteUrl = 'https://sukmaaji.my.id/blogs';
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://blog.sukmaaji.my.id";
     const changefreq = 'weekly';
     const posts = getSortedPostsData().map(({ slug }) => ({
         url: `${siteUrl}/${slug}`,

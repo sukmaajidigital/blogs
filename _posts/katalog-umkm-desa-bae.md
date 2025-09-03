@@ -20,7 +20,7 @@ tags:
 
 Di era digital yang serba cepat ini, kehadiran online bukan lagi pilihan, melainkan keharusan, terutama bagi para pelaku Usaha Mikro, Kecil, dan Menengah (UMKM). Kesempatan emas inilah yang menjadi salah satu fokus utama kami, mahasiswa Kuliah Kerja Nyata (KKN) **Universitas Muria Kudus (UMK)**, saat mengabdi di **Desa Bae**, Kecamatan Bae, Kabupaten Kudus.
 
-## Inisiatif Program Kerja "UMKM Digital"
+<h1> Inisiatif Program Kerja "UMKM Digital" </h1>
 
 Selama periode KKN yang berlangsung dari **22 Juli hingga 22 Agustus 2025**, salah satu program kerja (proker) unggulan kami adalah **UMKM Digital**. Proker ini bertujuan untuk membantu UMKM lokal Desa Bae agar produk-produk unggulannya bisa dikenal lebih luas dan menjangkau pasar yang lebih besar.
 

@@ -8,9 +8,7 @@ import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Ganti 'my-blog' dengan nama repo Anda
-const REPO_NAME = "blogs";
-const SITE_URL = `https://sukmaaji.my.id/${REPO_NAME}`;
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://blog.sukmaaji.my.id";
 
 export const metadata: Metadata = {
   // Metadata Base
@@ -53,9 +51,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id">
-      <body className={`${inter.className} bg-blue-950 text-white`}>
-        <div className="flex flex-col min-h-screen">
+    <html lang="id" className="dark:bg-gray-900 dark:text-white bg-white text-black">
+      <body
+        className={`${inter.className} transition-colors duration-300 bg-white text-black dark:bg-gray-900 dark:text-white`}
+      >
+        <div className="flex flex-col min-h-screen ">
           <Header />
           <main className="flex-grow pt-20">{children}</main>
           <Footer />

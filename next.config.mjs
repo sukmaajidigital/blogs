@@ -3,11 +3,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     // Aktifkan output statis
-    output: 'export',
+    // output: 'export',
 
     // (PENTING) Ganti 'my-blog' dengan nama repository GitHub Anda
-    basePath: '/blogs',
-    assetPrefix: '/blogs',
+    basePath: '',
+    assetPrefix: '/',
     // TAMBAHKAN BLOK INI
     images: {
         // Menonaktifkan Image Optimization API bawaan Next.js

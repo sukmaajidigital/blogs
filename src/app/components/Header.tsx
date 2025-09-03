@@ -16,14 +16,14 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed w-full z-50 bg-dark-300/90 backdrop-blur-md border-b border-dark-100">
+    <header className="fixed w-full z-50 border-b backdrop-blur-md bg-white/90 border-gray-200 dark:bg-gray-950/90 dark:border-gray-900">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo dan Nama Brand */}
         <Link
           href="/"
-          className="text-xl font-bold flex items-center text-white hover:opacity-80 transition-opacity"
+          className="text-xl font-bold flex items-center text-black hover:opacity-80 transition-opacity dark:text-white"
         >
-          <div className="bg-gradient-to-r from-accent to-accent-light p-2 rounded-lg mr-3">
+          <div className="bg-gradient-to-r from-gray-600 to-gray-400 p-2 rounded-lg mr-3 dark:from-accent dark:to-accent-light">
             <FontAwesomeIcon icon={faCode} className="text-white" />
           </div>
           <span>
@@ -34,8 +34,14 @@ const Header = () => {
         {/* Menu Desktop */}
         <div className="hidden md:flex items-center space-x-6">
           <Link
+            href="/"
+            className="text-blue-950 hover:text-blue-600 transition dark:text-slate-300 dark:hover:text-white bg-blue-300 px-3 py-2 rounded-lg shadow-md hover:shadow-lg"
+          >
+            Blog
+          </Link>
+          <Link
             href="https://sukmaaji.my.id/"
-            className="text-slate-dark hover:text-white transition"
+            className="text-blue-950 hover:text-blue-600 transition dark:text-slate-300 dark:hover:text-white bg-blue-300 px-3 py-2 rounded-lg shadow-md hover:shadow-lg"
           >
             Homepage
           </Link>
@@ -44,7 +50,7 @@ const Header = () => {
         {/* Tombol Menu Mobile */}
         <button
           id="mobile-menu-button"
-          className="md:hidden text-xl bg-dark-200 p-2 rounded-lg text-slate-light"
+          className="md:hidden text-xl bg-gray-100 p-2 rounded-lg text-gray-700 dark:bg-gray-900 dark:text-slate-200"
           onClick={toggleMobileMenu}
         >
           <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
@@ -54,14 +60,14 @@ const Header = () => {
       {/* Tampilan Menu Mobile */}
       <div
         id="mobile-menu"
-        className={`md:hidden bg-dark-200 border-t border-dark-100 ${
+        className={`md:hidden bg-gray-100 border-t border-gray-200 dark:bg-gray-900 dark:border-gray-800 ${
           isMobileMenuOpen ? "block" : "hidden"
         }`}
       >
         <div className="container mx-auto px-6 py-4 flex flex-col space-y-4">
           <Link
             href="https://sukmaaji.my.id/"
-            className="py-2 text-slate-dark hover:text-white transition"
+            className="py-2 text-gray-700 hover:text-black transition dark:text-slate-300 dark:hover:text-white"
             onClick={toggleMobileMenu}
           >
             Homepage

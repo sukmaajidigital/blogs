@@ -13,7 +13,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const post = await getPostData(params.slug);
-    const siteUrl = `https://sukmaaji.my.id/${process.env.REPO_NAME}`;
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://blog.sukmaaji.my.id";
 
     return {
       title: post.title,
@@ -49,7 +49,7 @@ export async function generateStaticParams() {
 
 // Komponen Structured Data untuk SEO
 const JsonLd = ({ postData }: { postData: Awaited<ReturnType<typeof getPostData>> }) => {
-  const siteUrl = `https://sukmaaji.my.id/${process.env.REPO_NAME}`;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://blog.sukmaaji.my.id";
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -88,7 +88,7 @@ const JsonLd = ({ postData }: { postData: Awaited<ReturnType<typeof getPostData>
 };
 
 export default async function Post({ params }: Props) {
-  const siteUrl = `https://sukmaaji.my.id/${process.env.REPO_NAME}`;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://blog.sukmaaji.my.id";
   let postData;
   try {
     postData = await getPostData(params.slug);
