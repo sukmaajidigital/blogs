@@ -1,52 +1,26 @@
 // src/app/page.tsx
 import { getSortedPostsData } from "@/lib/posts";
-import Link from "next/link";
-import Image from "next/image"; // 1. Import Image
+import PostList from "./components/PostList"; // Import komponen klien yang baru
 
+// Hapus 'use client'
+// Komponen ini sekarang menjadi Server Component
 export default function Home() {
+  // Pengambilan data terjadi di server
   const allPostsData = getSortedPostsData();
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://blog.sukmaaji.my.id";
+
   return (
     <div className="container mx-auto px-4 py-12">
       <section className="text-center mb-12">
-        <h1 className="text-3xl font-extrabold tracking-tight mb-3">Welcome To Personal Blog</h1>
-        <p className="text-lg text-gray-600">
-          Berbagi Inspirasi, Cerita, dan Inovasi Seputar Teknologi & Pengembangan Diri
+        <h1 className="text-5xl font-extrabold tracking-tight mb-3 text-gray-900 dark:text-white">
+          Welcome to My Blog
+        </h1>
+        <p className="text-lg text-gray-600 dark:text-gray-300">
+          Thoughts, stories, and ideas on web development.
         </p>
       </section>
 
-      <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {allPostsData.map(({ slug, date, title, excerpt, coverImage }) => (
-          <article
-            key={slug}
-            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
-          >
-            {coverImage && (
-              <Link href={`/${slug}`}>
-                <Image
-                  src={`${siteUrl}${coverImage}`}
-                  alt={`Cover image for ${title}`}
-                  width={400}
-                  height={200}
-                  className="w-full h-48 object-cover"
-                />
-              </Link>
-            )}
-            <div className="p-6">
-              <p className="text-sm text-gray-500 mb-2">{date}</p>
-              <h2 className="text-xl font-bold mb-2">
-                <Link href={`/${slug}`} className="text-gray-900 hover:text-blue-800">
-                  {title}
-                </Link>
-              </h2>
-              <p className="text-gray-700 mb-4">{excerpt}</p>
-              <Link href={`/${slug}`} className="font-semibold text-blue-800 hover:underline">
-                Read more...
-              </Link>
-            </div>
-          </article>
-        ))}
-      </section>
+      {/* Render komponen klien dan teruskan data sebagai props */}
+      <PostList allPosts={allPostsData} />
     </div>
   );
 }
