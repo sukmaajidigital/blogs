@@ -4,7 +4,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import * as solidIcons from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   // State untuk mengontrol visibilitas menu mobile
@@ -24,7 +24,7 @@ const Header = () => {
           className="text-xl font-bold flex items-center text-black hover:opacity-80 transition-opacity dark:text-white"
         >
           <div className="bg-gradient-to-r from-gray-600 to-gray-400 p-2 rounded-lg mr-3 dark:from-accent dark:to-accent-light">
-            <FontAwesomeIcon icon={faCode} className="text-white" />
+            <FontAwesomeIcon icon={solidIcons.faCode} className="text-white" />
           </div>
           <span>
             Sukma<span className="text-accent">Aji</span>Digital
@@ -53,7 +53,7 @@ const Header = () => {
           className="md:hidden text-xl bg-gray-100 p-2 rounded-lg text-gray-700 dark:bg-gray-900 dark:text-slate-200"
           onClick={toggleMobileMenu}
         >
-          <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
+          <FontAwesomeIcon icon={isMobileMenuOpen ? solidIcons.faTimes : solidIcons.faBars} />
         </button>
       </nav>
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Ikon solid untuk logo
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import * as solidIcons from "@fortawesome/free-solid-svg-icons";
 
 // Ikon brand untuk sosial media
 import { faGithub, faLinkedin, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
@@ -20,7 +20,7 @@ const Footer = () => {
           className="text-xl font-bold flex items-center justify-center text-black hover:opacity-80 transition-opacity dark:text-white"
         >
           <div className="bg-gradient-to-r from-gray-600 to-gray-400 p-2 rounded-lg mr-3 dark:from-accent dark:to-accent-light">
-            <FontAwesomeIcon icon={faCode} className="text-white" />
+            <FontAwesomeIcon icon={solidIcons.faCode} className="text-white" />
           </div>
           <span>
             Sukma<span className="text-accent">Aji</span>Digital
